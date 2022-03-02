@@ -1,12 +1,14 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Undefined
+
+Community Project
 
 ## Getting Started
+
+This repository is using `Yarn Berry`. You don't have to install packages, but you must use `yarn`, not `npm`
 
 First, run the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
 ```
 
