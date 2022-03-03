@@ -1,42 +1,69 @@
 import { css } from "@emotion/react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { Emoji } from "../../atoms/Emoji";
 
 interface categoryItemProps {
   content: string;
   symbol: any;
   label: string;
+  mainCategory: string;
+  subCategory?: string;
 }
 
-export const CategoryItem = ({ content, symbol, label }: categoryItemProps) => {
+export const CategoryItem = ({
+  content,
+  symbol,
+  label,
+  mainCategory,
+  subCategory = mainCategory,
+}: categoryItemProps) => {
+  const router = useRouter();
+  const recentCategory = router.query.category
+    ? router.query.category
+    : router.pathname.split("/")[1];
+  const isOpen = subCategory === recentCategory;
   return (
-    <li css={categoryItemStyle}>
-      <Emoji
-        symbol={symbol}
-        label={label}
-        padding="0 20px 0 0"
-        emojiSize="30px"
-      />
-      <span>{content}</span>
+    <li>
+      <button
+        css={categoryItemStyle(isOpen)}
+        onClick={
+          isOpen
+            ? () => {}
+            : () => router.push(`/${mainCategory}?category=${subCategory}`)
+        }
+      >
+        <Emoji
+          symbol={symbol}
+          label={label}
+          emojiSize="20px"
+          padding="0 10px 0 0"
+        />
+        <span>{content}</span>
+      </button>
     </li>
   );
 };
 
-const categoryItemStyle = css`
-  padding: 10px;
-  margin: 10px;
-  display: flex;
+const categoryItemStyle = (isOpen: boolean) => css`
+  padding: 3%;
+  margin: 3%;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
   align-items: center;
+  justify-items: start;
+  justify-content: left;
   font-family: "Open Sans", sans-serif;
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 600;
   list-style: none;
   box-sizing: border-box;
-  width: 300px;
-  height: 60px;
+  width: 200px;
+  height: 50px;
   border-radius: 10px;
-  cursor: pointer;
+  background-color: ${isOpen ? "#cfcfcf" : "none"};
+  cursor: ${isOpen ? "default" : "pointer"};
   :hover {
-    background-color: #8080805e;
+    background-color: ${isOpen ? "#cfcfcf" : "#808080"};
   }
 `;

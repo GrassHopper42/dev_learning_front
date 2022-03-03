@@ -10,7 +10,7 @@ interface navListProps {
 export const NavItem = ({ content, targetUrl }: navListProps) => {
   const router = useRouter();
   const recentPath = router.pathname;
-  const isOpen = targetUrl === recentPath;
+  const isOpen = targetUrl.split("?")[0] === recentPath;
   return (
     <li css={navItemStyle(isOpen)}>
       <Link href={targetUrl}>{content}</Link>

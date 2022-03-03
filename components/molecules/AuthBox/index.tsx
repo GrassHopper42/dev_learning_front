@@ -1,24 +1,28 @@
 import { css } from "@emotion/react";
 import { useEffect, useState } from "react";
-import { KAKAO_AUTH_URL } from "../../../pages/api/kakaoLogin";
 
 export const AuthBox = () => {
-  const authStatus = null;
-  if (!authStatus) {
+  const [isSign, setSign] = useState(false);
+  useEffect(() => {
+    localStorage.getItem("token")
+      ? setSign(!!localStorage.getItem("token"))
+      : setSign(false);
+  }, []);
+  const KAKAO_CLIENT_ID = process.env.NEXT_PUBLIC_KAKAO_REST_API_KEY;
+  const KAKAO_REDIRECT_URI = process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI;
+  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_CLIENT_ID}&redirect_uri=${KAKAO_REDIRECT_URI}&response_type=code`;
+
+  if (!isSign) {
     return (
-      <>
-        <a href={KAKAO_AUTH_URL}>
-          <div css={signInButtonStyle}></div>
-        </a>
-      </>
+      <a href={KAKAO_AUTH_URL} rel="noreferrer">
+        <div css={signInButtonStyle}></div>
+      </a>
     );
   } else {
     return (
-      <>
-        <div css={profileButtonStyle}>
-          <img src="" alt="Profile" />
-        </div>
-      </>
+      <div css={profileButtonStyle}>
+        <img src="" alt="Profile" />
+      </div>
     );
   }
 };

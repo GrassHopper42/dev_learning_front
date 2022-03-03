@@ -3,14 +3,19 @@ import { css } from "@emotion/react";
 interface EmojiProps {
   symbol: any;
   label: string;
-  padding: string;
   emojiSize: string;
+  padding?: string;
 }
 
-export const Emoji = ({ symbol, label, padding, emojiSize }: EmojiProps) => {
+export const Emoji = ({
+  symbol,
+  label,
+  emojiSize,
+  padding = "0",
+}: EmojiProps) => {
   return (
     <span
-      css={emojiStyle(padding, emojiSize)}
+      css={emojiStyle(emojiSize, padding)}
       role="img"
       aria-label={label ? label : ""}
     >
@@ -19,7 +24,8 @@ export const Emoji = ({ symbol, label, padding, emojiSize }: EmojiProps) => {
   );
 };
 
-const emojiStyle = (padding: string, emojiSize: string) => css`
+const emojiStyle = (emojiSize: string, padding: string) => css`
+  margin: auto;
   padding: ${padding};
   font-size: ${emojiSize};
 `;
