@@ -4,7 +4,6 @@ const GlobalStyle = () => (
   <Global
     styles={css`
       @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
-      @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
       html,
       body,
       div,
@@ -98,7 +97,7 @@ const GlobalStyle = () => (
       }
       html {
         font-size: 62.5%;
-        font-family: "Noto Sans KR", "sans-serif";
+        font-family: "Open Sans", sans-serif;
         body {
           font-size: 1.6rem;
         }

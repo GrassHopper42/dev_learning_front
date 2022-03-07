@@ -8,7 +8,7 @@ interface categoryItemProps {
   symbol: any;
   label: string;
   mainCategory: string;
-  subCategory?: string;
+  subCategoryId?: number | null;
 }
 
 export const CategoryItem = ({
@@ -16,13 +16,11 @@ export const CategoryItem = ({
   symbol,
   label,
   mainCategory,
-  subCategory = mainCategory,
+  subCategoryId = null,
 }: categoryItemProps) => {
   const router = useRouter();
-  const recentCategory = router.query.category
-    ? router.query.category
-    : router.pathname.split("/")[1];
-  const isOpen = subCategory === recentCategory;
+  const recentCategory = router.asPath.split("/")[2];
+  const isOpen = subCategoryId === parseInt(recentCategory);
   return (
     <li>
       <button
@@ -30,7 +28,7 @@ export const CategoryItem = ({
         onClick={
           isOpen
             ? () => {}
-            : () => router.push(`/${mainCategory}?category=${subCategory}`)
+            : () => router.push(`/${mainCategory}/${subCategoryId}`)
         }
       >
         <Emoji

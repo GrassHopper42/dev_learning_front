@@ -47,6 +47,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:17.0.2"],\
             ["react-dom", "virtual:f2ed737450182da4ff3c142ca6b885ae899eeeb3644fb06ff949f35fd5ed92c3a5ff8960b6d68300dd5138a9875b862ab113bf527168e253ab2943533b9f2931#npm:17.0.2"],\
             ["react-redux", "virtual:f2ed737450182da4ff3c142ca6b885ae899eeeb3644fb06ff949f35fd5ed92c3a5ff8960b6d68300dd5138a9875b862ab113bf527168e253ab2943533b9f2931#npm:7.2.6"],\
+            ["recoil", "virtual:f2ed737450182da4ff3c142ca6b885ae899eeeb3644fb06ff949f35fd5ed92c3a5ff8960b6d68300dd5138a9875b862ab113bf527168e253ab2943533b9f2931#npm:0.6.1"],\
             ["typescript", "patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=bda367"]\
           ],\
           "linkType": "SOFT"\
@@ -1434,6 +1435,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:17.0.2"],\
             ["react-dom", "virtual:f2ed737450182da4ff3c142ca6b885ae899eeeb3644fb06ff949f35fd5ed92c3a5ff8960b6d68300dd5138a9875b862ab113bf527168e253ab2943533b9f2931#npm:17.0.2"],\
             ["react-redux", "virtual:f2ed737450182da4ff3c142ca6b885ae899eeeb3644fb06ff949f35fd5ed92c3a5ff8960b6d68300dd5138a9875b862ab113bf527168e253ab2943533b9f2931#npm:7.2.6"],\
+            ["recoil", "virtual:f2ed737450182da4ff3c142ca6b885ae899eeeb3644fb06ff949f35fd5ed92c3a5ff8960b6d68300dd5138a9875b862ab113bf527168e253ab2943533b9f2931#npm:0.6.1"],\
             ["typescript", "patch:typescript@npm%3A4.5.5#~builtin<compat/typescript>::version=4.5.5&hash=bda367"]\
           ],\
           "linkType": "SOFT"\
@@ -2218,6 +2220,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ignore", "npm:5.2.0"],\
             ["merge2", "npm:1.4.1"],\
             ["slash", "npm:3.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["hamt_plus", [\
+        ["npm:1.0.2", {\
+          "packageLocation": "./.yarn/cache/hamt_plus-npm-1.0.2-67a52ee1df-af26ea32db.zip/node_modules/hamt_plus/",\
+          "packageDependencies": [\
+            ["hamt_plus", "npm:1.0.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -3307,6 +3318,37 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:17.0.2"],\
             ["react-dom", "virtual:f2ed737450182da4ff3c142ca6b885ae899eeeb3644fb06ff949f35fd5ed92c3a5ff8960b6d68300dd5138a9875b862ab113bf527168e253ab2943533b9f2931#npm:17.0.2"],\
             ["react-is", "npm:17.0.2"],\
+            ["react-native", null]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react-native",\
+            "@types/react",\
+            "react-dom",\
+            "react-native",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["recoil", [\
+        ["npm:0.6.1", {\
+          "packageLocation": "./.yarn/cache/recoil-npm-0.6.1-12c4d62952-823c098e30.zip/node_modules/recoil/",\
+          "packageDependencies": [\
+            ["recoil", "npm:0.6.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:f2ed737450182da4ff3c142ca6b885ae899eeeb3644fb06ff949f35fd5ed92c3a5ff8960b6d68300dd5138a9875b862ab113bf527168e253ab2943533b9f2931#npm:0.6.1", {\
+          "packageLocation": "./.yarn/__virtual__/recoil-virtual-d2b9a55a63/0/cache/recoil-npm-0.6.1-12c4d62952-823c098e30.zip/node_modules/recoil/",\
+          "packageDependencies": [\
+            ["recoil", "virtual:f2ed737450182da4ff3c142ca6b885ae899eeeb3644fb06ff949f35fd5ed92c3a5ff8960b6d68300dd5138a9875b862ab113bf527168e253ab2943533b9f2931#npm:0.6.1"],\
+            ["@types/react", "npm:17.0.39"],\
+            ["@types/react-dom", null],\
+            ["@types/react-native", null],\
+            ["hamt_plus", "npm:1.0.2"],\
+            ["react", "npm:17.0.2"],\
+            ["react-dom", "virtual:f2ed737450182da4ff3c142ca6b885ae899eeeb3644fb06ff949f35fd5ed92c3a5ff8960b6d68300dd5138a9875b862ab113bf527168e253ab2943533b9f2931#npm:17.0.2"],\
             ["react-native", null]\
           ],\
           "packagePeers": [\

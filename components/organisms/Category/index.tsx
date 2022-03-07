@@ -6,7 +6,7 @@ interface CategoryObj {
   content: string;
   symbol: string;
   label: string;
-  name: string;
+  Id: number;
 }
 interface CategoryProps {
   categoryList: CategoryObj[];
@@ -19,12 +19,6 @@ export const Category = ({ categoryList }: CategoryProps) => {
     <>
       <ul css={categoryStyle}>
         <div>카테고리</div>
-        <CategoryItem
-          content="전체보기"
-          symbol="🙋‍♂️"
-          label="Man Raising Hand"
-          mainCategory={mainCategory}
-        />
         {categoryList.map((category) => {
           return (
             <CategoryItem
@@ -33,7 +27,7 @@ export const Category = ({ categoryList }: CategoryProps) => {
               symbol={category.symbol}
               label={category.label}
               mainCategory={mainCategory}
-              subCategory={category.name}
+              subCategoryId={category.Id}
             />
           );
         })}

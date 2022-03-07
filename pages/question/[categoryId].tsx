@@ -1,22 +1,16 @@
 import { css } from "@emotion/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { Emoji } from "../components/atoms/Emoji";
-import { Category } from "../components/organisms/Category";
+import { Emoji } from "../../components/atoms/Emoji";
+import { NewPostButton } from "../../components/molecules/NewPostButton";
+import { Category } from "../../components/organisms/Category";
 
 const QuestionPage = () => {
   const router = useRouter();
-  const recentCategory = router.query.category;
+  const recentCategory = router.asPath.split("/")[2];
   const recentCategoryObj = questionCategories.find(
-    (category) => category.name === recentCategory
-  )
-    ? questionCategories.find((category) => category.name === recentCategory)
-    : {
-        content: "전체보기",
-        symbol: "🙋‍♂️",
-        label: "Man Raising Hand",
-        name: "View All",
-      };
+    (category) => category.Id === parseInt(recentCategory)
+  );
 
   return (
     <div css={questionPageStyle}>
@@ -30,6 +24,7 @@ const QuestionPage = () => {
         />
         <span>{recentCategoryObj?.content}</span>
       </div>
+      <NewPostButton />
     </div>
   );
 };
@@ -45,27 +40,33 @@ export default QuestionPage;
 
 const questionCategories = [
   {
+    content: "전체보기",
+    symbol: "🙋‍♂️",
+    label: "Man Raising Hand",
+    Id: 3,
+  },
+  {
     content: "Dev-Ops",
     symbol: "⚙️",
     label: "Gear",
-    name: "dev_ops",
+    Id: 6,
   },
   {
     content: "JAVA",
     symbol: "📱",
     label: "Mobile Phone",
-    name: "java",
+    Id: 7,
   },
   {
     content: "알고리즘",
     symbol: "💻",
     label: "Laptop",
-    name: "algorithm",
+    Id: 5,
   },
   {
     content: "코딩테스트",
     symbol: "📝",
     label: "Memo",
-    name: "coding_test",
+    Id: 4,
   },
 ];

@@ -13,7 +13,8 @@ export const Layout = ({ children }: AppLayoutProps) => {
       <div
         css={css`
           padding-top: 70px;
-          background-color: #c9c9c9;
+          width: 1060px;
+          margin: 0 auto;
         `}
       >
         {children}

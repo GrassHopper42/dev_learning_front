@@ -8,13 +8,14 @@ const REDIRECT_URI = process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI;
 const KakaoLoginPage = () => {
   const router = useRouter();
   useEffect(() => {
+    const token = localStorage.getItem("token");
     const code = new URL(window.location.href).searchParams.get("code");
     const handleCodeError = () => {
       window.alert("Code From Kakao Server missing");
       router.back();
     };
-    code ? getKakaoToken(code) : handleCodeError();
-  });
+    token ? router.back() : code ? getKakaoToken(code) : handleCodeError();
+  }, []);
   const getKakaoToken = (code: string) => {
     axios
       .post(
@@ -30,7 +31,9 @@ const KakaoLoginPage = () => {
         if (access_token) {
           sendToServer(access_token);
         } else {
-          window.alert("access_token error");
+          window.alert(
+            "Success to get Token From Kakao Server, but access_token is weird"
+          );
           router.back();
         }
       })
@@ -50,6 +53,7 @@ const KakaoLoginPage = () => {
         },
       })
       .then((res) => {
+        window.alert("Login Success");
         localStorage.setItem("token", res.data.access_token);
         router.back();
       })

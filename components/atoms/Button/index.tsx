@@ -4,16 +4,20 @@ import { css } from "@emotion/react";
 interface buttonProps {
   color: string;
   content: string;
-  onClickFn: () => void;
+  type?: "button" | "submit" | undefined;
+  onClickFn?: () => void;
 }
 
-const Button = ({ color, content, onClickFn }: buttonProps) => {
+const Button = ({
+  color,
+  content,
+  type = "button",
+  onClickFn,
+}: buttonProps) => {
   return (
-    <>
-      <button css={buttonStyle(color)} onClick={onClickFn}>
-        {content}
-      </button>
-    </>
+    <button css={buttonStyle(color)} type={type} onClick={onClickFn}>
+      {content}
+    </button>
   );
 };
 
